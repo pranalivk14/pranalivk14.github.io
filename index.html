@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranali Kulkarni — Analytics & AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2A1410;
+    --gold: #C26B5A;
+    --gold-pale: #F0DDD4;
+    --cream: #FDF5F0;
+    --muted: #7a4a40;
+    --border: #E4C8BC;
+    --white: #ffffff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--navy); }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display:grid;
+    grid-template-columns:380px 1fr;
+    min-height:100vh;
+  }
+
+  /* ── LEFT PANEL ── */
+  .left {
+    background:var(--white);
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:56px 40px 48px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+  }
+
+  .photo-wrap {
+    width:220px; height:260px;
+    overflow:hidden;
+    margin-bottom:28px;
+    background:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+
+  .photo-wrap img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:top;
+  }
+
+  .photo-initials {
+    font-family:'Nunito',sans-serif;
+    font-size:72px; font-weight:300;
+    color:var(--gold); opacity:0.6;
+    display:flex; flex-direction:column;
+    align-items:center; gap:8px;
+  }
+
+  .photo-hint {
+    font-family:'DM Mono',monospace;
+    font-size:9px; letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:rgba(201,168,76,0.5);
+  }
+
+  .left-name {
+    font-family:'Nunito',sans-serif;
+    font-size:26px; font-weight:600;
+    color:var(--navy); text-align:center;
+    line-height:1.2; margin-bottom:6px;
+  }
+
+  .left-role {
+    font-size:14px; color:var(--muted);
+    font-weight:400; text-align:center;
+    margin-bottom:28px;
+  }
+
+  .email-btn {
+    display:block; width:100%;
+    background:var(--gold); color:#ffffff;
+    font-family:'DM Mono',monospace;
+    font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; text-align:center;
+    padding:14px; text-decoration:none;
+    margin-bottom:28px;
+    transition:background 0.2s;
+  }
+  .email-btn:hover { background:#7a3028; }
+
+  .social-row {
+    display:flex; align-items:center; gap:16px;
+    margin-bottom:40px;
+  }
+
+  .soc {
+    width:40px; height:40px;
+    border:1.5px solid var(--border);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; color:var(--muted);
+    transition:all 0.2s;
+  }
+  .soc:hover { border-color:var(--navy); color:var(--navy); background:var(--cream); }
+  .soc svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  .nav-pills {
+    display:flex; flex-direction:column;
+    width:100%; gap:6px; margin-top:auto;
+  }
+
+  .nav-pill {
+    display:block; width:100%;
+    padding:11px 16px;
+    font-family:'Nunito',sans-serif;
+    font-size:13px; font-weight:500;
+    color:var(--muted); text-decoration:none;
+    border:1px solid transparent;
+    border-radius:4px;
+    transition:all 0.2s;
+    text-align:center;
+  }
+  .nav-pill:hover { background:var(--cream); color:var(--navy); border-color:var(--border); }
+  .nav-pill.active { background:var(--gold); color:#ffffff; border-color:var(--gold); }
+
+  /* ── RIGHT PANEL ── */
+  .right { padding:0; }
+
+  .panel {
+    min-height:100vh;
+    padding:80px 72px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  .panel:last-child { border-bottom:none; }
+  .panel:nth-child(even) { background:var(--white); }
+
+  .panel-title {
+    font-family:'Nunito',sans-serif;
+    font-size:clamp(36px,5vw,56px);
+    font-weight:400;
+    color:var(--navy);
+    margin-bottom:28px;
+    line-height:1.1;
+  }
+
+  .panel-title span { color:var(--gold); font-style:italic; }
+
+  .panel-body {
+    font-size:15px; color:var(--muted);
+    line-height:1.85; font-weight:300;
+    max-width:580px;
+  }
+
+  .panel-body p { margin-bottom:14px; }
+  .panel-body p:last-child { margin-bottom:0; }
+  .panel-body strong { color:var(--navy); font-weight:600; }
+
+  .panel-btns {
+    display:flex; gap:14px; margin-top:40px;
+    flex-wrap:wrap;
+  }
+
+  .pbtn {
+    font-family:'DM Mono',monospace;
+    font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; padding:13px 32px;
+    text-decoration:none; transition:all 0.2s;
+  }
+
+  .pbtn-navy { background:var(--gold); color:#ffffff; }
+  .pbtn-navy:hover { background:#7a3028; }
+  .pbtn-out { border:1.5px solid var(--navy); color:var(--navy); }
+  .pbtn-out:hover { background:var(--navy); color:var(--gold); }
+
+  /* PROJECTS */
+  .proj-list { display:flex; flex-direction:column; gap:20px; max-width:620px; }
+
+  .proj {
+    background:var(--cream);
+    border:1px solid var(--border);
+    padding:24px 28px;
+    transition:box-shadow 0.2s, transform 0.2s;
+  }
+  .proj:hover { box-shadow:0 6px 24px rgba(13,33,55,0.1); transform:translateY(-2px); }
+
+  .proj-top {
+    display:flex; align-items:center;
+    justify-content:space-between; margin-bottom:8px;
+  }
+
+  .proj-name {
+    font-family:'Nunito',sans-serif;
+    font-size:17px; font-weight:400; color:var(--navy);
+  }
+
+  .proj-status {
+    font-family:'DM Mono',monospace;
+    font-size:9px; letter-spacing:0.12em;
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:5px;
+  }
+
+  .proj-status.live { color:#2ecc71; }
+  .proj-status.wip { color:var(--muted); }
+  .dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .dot.live { animation:blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .proj-desc {
+    font-size:13px; color:var(--muted);
+    line-height:1.65; font-weight:300; margin-bottom:14px;
+  }
+
+  .proj-chips { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
+  .chip {
+    font-family:'DM Mono',monospace; font-size:9px;
+    letter-spacing:0.08em; text-transform:uppercase;
+    padding:3px 9px; border:1px solid var(--border);
+    color:var(--muted); background:var(--white);
+  }
+
+  .proj-links { display:flex; gap:14px; }
+  .plink {
+    font-family:'DM Mono',monospace; font-size:10px;
+    letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--navy); text-decoration:none;
+    border-bottom:1px solid var(--gold); padding-bottom:1px;
+    transition:color 0.2s;
+  }
+  .plink:hover { color:var(--gold); }
+  .plink-dim { color:var(--muted); border-color:var(--border); }
+
+  /* SKILLS */
+  .skills-cols { display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:580px; }
+  .skill-group-title {
+    font-family:'DM Mono',monospace; font-size:9px;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:16px;
+    padding-bottom:8px; border-bottom:1px solid var(--border);
+  }
+  .skill-items { display:flex; flex-direction:column; gap:10px; }
+  .skill-row { display:flex; flex-direction:column; gap:4px; }
+  .skill-name-row { display:flex; justify-content:space-between; font-size:12px; color:var(--navy); font-weight:400; }
+  .skill-lv { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); }
+  .skill-bar { height:2px; background:var(--border); }
+  .skill-fill { height:100%; background:var(--gold); }
+
+  /* EDUCATION */
+  .edu-list { display:flex; flex-direction:column; gap:20px; max-width:560px; }
+  .edu-item {
+    padding:20px 24px;
+    border-left:3px solid var(--gold);
+    background:var(--white);
+  }
+  .edu-type {
+    font-family:'DM Mono',monospace; font-size:9px;
+    letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:6px;
+  }
+  .edu-deg {
+    font-family:'Nunito',sans-serif; font-size:17px;
+    font-weight:400; color:var(--navy); margin-bottom:3px;
+  }
+  .edu-school { font-size:12px; color:var(--muted); margin-bottom:2px; }
+  .edu-year { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); }
+
+  /* HOBBIES */
+  .hob-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:480px; }
+  .hob {
+    background:var(--white); border:1px solid var(--border);
+    padding:22px 20px; text-align:center;
+    transition:all 0.22s;
+  }
+  .hob:hover { background:var(--navy); }
+  .hob:hover .hob-name { color:var(--white); }
+  .hob:hover .hob-desc { color:rgba(255,255,255,0.45); }
+  .hob-icon { font-size:24px; margin-bottom:10px; display:block; }
+  .hob-name { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:4px; transition:color 0.22s; }
+  .hob-desc { font-size:11.5px; color:var(--muted); font-weight:300; line-height:1.5; transition:color 0.22s; }
+
+  /* RESUME download */
+  .dl-box {
+    background:#2A1410; padding:28px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap; max-width:560px; margin-top:32px;
+  }
+  .dl-title { font-family:'Nunito',sans-serif; font-size:18px; font-weight:400; color:var(--white); }
+  .dl-sub { font-size:12px; color:rgba(255,255,255,0.35); margin-top:2px; }
+  .btn-gold {
+    background:#ffffff; color:#2A1410;
+    font-family:'DM Mono',monospace; font-size:11px;
+    letter-spacing:0.12em; text-transform:uppercase;
+    padding:11px 24px; text-decoration:none; transition:background 0.2s;
+  }
+  .btn-gold:hover { background:#e8c97a; }
+
+  /* resume entries */
+  .res-list { display:flex; flex-direction:column; gap:20px; max-width:560px; }
+  .res-entry { padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .res-entry:last-child { border-bottom:none; padding-bottom:0; }
+  .res-hdr { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:3px; }
+  .res-title { font-family:'Nunito',sans-serif; font-size:16px; font-weight:400; color:var(--navy); }
+  .res-date { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); flex-shrink:0; }
+  .res-org { font-size:12px; color:var(--gold); margin-bottom:5px; font-weight:500; }
+  .res-desc { font-size:12.5px; color:var(--muted); line-height:1.65; font-weight:300; }
+
+  @media(max-width:860px){
+    .layout { grid-template-columns:1fr; }
+    .left { position:relative; height:auto; padding:48px 32px 36px; }
+    .panel { padding:56px 32px; min-height:auto; }
+    .skills-cols { grid-template-columns:1fr; }
+  }
+
+  /* ── FULL WIDTH HERO ── */
+  .hero-full {
+    background: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-nav {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 64px; height:72px; background:var(--navy);
+    position:sticky; top:0; z-index:200; flex-shrink:0;
+  }
+  .hero-logo { font-family:'Nunito',sans-serif; font-size:22px; font-weight:800; color:#fff; }
+  .hero-logo span { color:var(--gold); }
+  .hero-nav-links { display:flex; align-items:center; gap:4px; }
+  .hero-nav-links a {
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; color:rgba(255,255,255,0.6); text-decoration:none;
+    padding:8px 16px; transition:color 0.2s; border-radius:2px;
+  }
+  .hero-nav-links a:hover { color:#fff; }
+  .hero-contact-btn {
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; background:var(--gold); color:#fff;
+    padding:10px 22px; text-decoration:none; border-radius:2px; transition:background 0.2s;
+  }
+  .hero-contact-btn:hover { background:var(--gold-light); }
+  .hero-body {
+    flex:1; display:grid; grid-template-columns:1fr 1fr;
+    align-items:center; padding:0 64px; gap:40px;
+  }
+  .hero-hi { font-size:20px; font-weight:400; color:var(--muted); margin-bottom:6px; }
+  .hero-name {
+    font-family:'Nunito',sans-serif; font-size:clamp(40px,5.5vw,72px);
+    font-weight:800; color:var(--navy); line-height:1.05;
+    letter-spacing:-0.02em; margin-bottom:10px;
+  }
+  h2.hero-title {
+    font-family:'Nunito',sans-serif; font-size:clamp(20px,3vw,32px);
+    font-weight:700; color:var(--gold); margin-bottom:20px; letter-spacing:-0.01em;
+  }
+  h2.hero-title span { color:var(--navy); }
+  .hero-desc {
+    font-size:15px; color:var(--muted); line-height:1.75; font-weight:300;
+    max-width:440px; margin-bottom:36px;
+  }
+  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+  .hbtn {
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; padding:14px 32px; text-decoration:none;
+    transition:all 0.2s; border-radius:2px; font-weight:500;
+  }
+  .hbtn-primary { background:var(--navy); color:#fff; }
+  .hbtn-primary:hover { background:#1a0a08; }
+  .hbtn-outline { border:2px solid var(--navy); color:var(--navy); background:transparent; }
+  .hbtn-outline:hover { background:var(--navy); color:#fff; }
+  .hero-photo-wrap { display:flex; align-items:center; justify-content:center; }
+  .hero-photo-ring {
+    width:320px; height:320px; border-radius:50%;
+    background:var(--gold-pale); border:6px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .hero-photo-circle {
+    width:100%; height:100%; border-radius:50%; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; background:#F0DDD4;
+  }
+  .hero-photo-circle img { width:100%; height:100%; object-fit:cover; object-position:top center; }
+  .hero-photo-initials {
+    font-family:'Nunito',sans-serif; font-size:80px; font-weight:800;
+    color:var(--gold); opacity:0.4;
+  }
+  .layout { display:flex; flex-direction:column; min-height:100vh; }
+
+  /* HERO CONTACT INFO */
+  .hero-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 28px;
+    max-width: 420px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .hcontact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    opacity: 0.7;
+  }
+  .hcontact:hover { opacity: 1; }
+  .hcontact-icon {
+    width: 16px; height: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--muted);
+  }
+  .hcontact-icon svg { width: 13px; height: 13px; }
+  .hcontact-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+  .hcontact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .hcontact-val {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--navy);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- HERO FULL WIDTH -->
+  <div class="hero-full" id="home">
+
+    <!-- TOP NAV -->
+    <header class="hero-nav">
+      <div class="hero-logo">Pranali<span>.</span></div>
+      <nav class="hero-nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#hobbies">Hobbies</a>
+      </nav>
+      <a href="mailto:YOUR-EMAIL" class="hero-contact-btn">Contact Me</a>
+    </header>
+
+    <!-- HERO BODY -->
+    <div class="hero-body">
+      <div class="hero-text">
+        <p class="hero-hi">Hi, I'm</p>
+        <h1 class="hero-name">Pranali Kulkarni</h1>
+        <h2 class="hero-title">Analytics <span>&</span> AI/ML Engineer</h2>
+        <p class="hero-desc">Analytically rooted, AI/ML powered. 5+ years turning messy, real-world data into intelligent, deployed applications.</p>
+        <div class="hero-btns">
+          <a href="resume.pdf" class="hbtn hbtn-primary" download>Resume</a>
+          <a href="#projects" class="hbtn hbtn-outline">My Projects</a>
+        </div>
+        <div class="hero-contacts">
+          <a href="tel:+14437138896" class="hcontact">
+            <div class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.66A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div class="hcontact-text">
+              <span class="hcontact-label">Phone</span>
+              <span class="hcontact-val">+1 (443) 713-8896</span>
+            </div>
+          </a>
+          <a href="mailto:pranalivk14@gmail.com" class="hcontact">
+            <div class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="hcontact-text">
+              <span class="hcontact-label">Email</span>
+              <span class="hcontact-val">pranalivk14@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/pranalikulkarni" target="_blank" class="hcontact">
+            <div class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="hcontact-text">
+              <span class="hcontact-label">LinkedIn</span>
+              <span class="hcontact-val">linkedin.com/in/pranalikulkarni</span>
+            </div>
+          </a>
+          <a href="https://github.com/pranalivk14" target="_blank" class="hcontact">
+            <div class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            </div>
+            <div class="hcontact-text">
+              <span class="hcontact-label">GitHub</span>
+              <span class="hcontact-val">github.com/pranalivk14</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring">
+          <div class="hero-photo-circle">
+            <!-- Replace below with: <img src="photo.jpg" alt="Pranali Kulkarni"> -->
+            <div class="hero-photo-initials">PK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SCROLLABLE SECTIONS -->
+  <div class="right">
+
+    <!-- ABOUT -->
+    <div class="panel" id="about">
+      <div class="panel-title">About <span>Me</span></div>
+      <div class="panel-body">
+        <p><em>Analytically rooted, AI/ML powered.</em></p>
+        <p>I combine <strong>5+ years of deep analytics experience</strong> across healthcare, product, and marketing with hands-on AI/ML engineering — building intelligent systems that go from raw, messy data all the way to deployed, production-ready applications.</p>
+        <ul style="margin:16px 0 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+          <li style="display:flex;gap:12px;font-size:14px;color:#7a4a40;font-weight:300;line-height:1.65;"><span style="color:#C26B5A;font-weight:600;flex-shrink:0">→</span><span><strong style="color:#2A1410;font-weight:600">Production data fluency</strong> — I know how data actually behaves in the real world: where it breaks, what it hides, and how to make it model-ready before engineering even begins.</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:#7a4a40;font-weight:300;line-height:1.65;"><span style="color:#C26B5A;font-weight:600;flex-shrink:0">→</span><span><strong style="color:#2A1410;font-weight:600">AI/ML in practice</strong> — actively building with Python, LLM APIs, RAG systems, and deployment pipelines. Every skill goes straight into a live, shipped project.</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:#7a4a40;font-weight:300;line-height:1.65;"><span style="color:#C26B5A;font-weight:600;flex-shrink:0">→</span><span><strong style="color:#2A1410;font-weight:600">Domain expertise</strong> — 5+ years across healthcare and marketing means my models and pipelines come with business context baked in, not bolted on.</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:#7a4a40;font-weight:300;line-height:1.65;"><span style="color:#C26B5A;font-weight:600;flex-shrink:0">→</span><span><strong style="color:#2A1410;font-weight:600">End-to-end thinking</strong> — I bridge the gap between technical rigour and business clarity, turning AI outputs into decisions that stakeholders actually understand and trust.</span></li>
+        </ul>
+      </div>
+      <div class="panel-btns">
+        <a href="#projects" class="pbtn pbtn-navy">View Projects</a>
+        <a href="#resume" class="pbtn pbtn-out">Resume</a>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="panel" id="projects">
+      <div class="panel-title">Featured <span>Projects</span></div>
+      <div class="proj-list">
+
+        <div class="proj">
+          <div class="proj-top">
+            <div class="proj-name">Healthcare Marketing Dashboard</div>
+            <div class="proj-status live"><div class="dot live"></div>Live</div>
+          </div>
+          <p class="proj-desc">AI-powered Streamlit dashboard processing 200,000 campaign records. Interactive charts, real-time filters, and a Gemini-powered Q&A panel — ask anything about the data in plain English.</p>
+          <div class="proj-chips">
+            <span class="chip">Python</span><span class="chip">Streamlit</span>
+            <span class="chip">Gemini AI</span><span class="chip">pandas</span><span class="chip">Plotly</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://health-marketing-dashboard-9arami72w3klpimbjczwxm.streamlit.app/" target="_blank" class="plink">Live App →</a>
+            <a href="https://github.com/pranalivk14/health-marketing-dashboard" target="_blank" class="plink">GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top">
+            <div class="proj-name">Automated Report Generator</div>
+            <div class="proj-status wip"><div class="dot"></div>In Progress</div>
+          </div>
+          <p class="proj-desc">Python automation that reads data, uses an LLM to write narrative summaries, and generates a formatted PDF report automatically. What used to take 2 hours now runs in 30 seconds.</p>
+          <div class="proj-chips">
+            <span class="chip">Python</span><span class="chip">LLM API</span>
+            <span class="chip">PDF</span><span class="chip">Automation</span>
+          </div>
+          <div class="proj-links"><span class="plink plink-dim">Coming soon</span></div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top">
+            <div class="proj-name">RAG Chatbot on Domain Documents</div>
+            <div class="proj-status wip"><div class="dot"></div>Planned</div>
+          </div>
+          <p class="proj-desc">A retrieval-augmented chatbot that answers questions from curated domain documents using LangChain and ChromaDB, deployed on Hugging Face Spaces.</p>
+          <div class="proj-chips">
+            <span class="chip">LangChain</span><span class="chip">RAG</span>
+            <span class="chip">ChromaDB</span><span class="chip">HuggingFace</span>
+          </div>
+          <div class="proj-links"><span class="plink plink-dim">Coming soon</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="panel" id="skills">
+      <div class="panel-title">Technical <span>Skills</span></div>
+      <div class="skills-cols">
+        <div>
+          <div class="skill-group-title">AI / ML</div>
+          <div class="skill-items">
+            <div class="skill-row"><div class="skill-name-row"><span>Python</span><span class="skill-lv">Proficient</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>LLM APIs / OpenAI</span><span class="skill-lv">Proficient</span></div><div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>LangChain / RAG</span><span class="skill-lv">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>Streamlit</span><span class="skill-lv">Proficient</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>Predictive Modeling</span><span class="skill-lv">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Analytics & Tools</div>
+          <div class="skill-items">
+            <div class="skill-row"><div class="skill-name-row"><span>SQL / Snowflake</span><span class="skill-lv">Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>Power BI / Looker</span><span class="skill-lv">Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>dbt / Airflow</span><span class="skill-lv">Proficient</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>A/B Testing / MMM</span><span class="skill-lv">Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-row"><div class="skill-name-row"><span>Tableau / GA4</span><span class="skill-lv">Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="panel" id="education">
+      <div class="panel-title">Education & <span>Learning</span></div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-type">Postgraduate · 2018 – 2020</div>
+          <div class="edu-deg">MS in Information Systems</div>
+          <div class="edu-school">University of Maryland Baltimore County</div>
+          <div class="edu-year">Baltimore, MD</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-type">Undergraduate · 2013 – 2017</div>
+          <div class="edu-deg">Bachelor of Engineering</div>
+          <div class="edu-school">University of Mumbai</div>
+          <div class="edu-year">Mumbai, India</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-type">Self-Directed · 2024 – Present</div>
+          <div class="edu-deg">AI/ML Upskilling Programme</div>
+          <div class="edu-school">LinkedIn Learning · Coursera · DeepLearning.AI</div>
+          <div class="edu-year">15+ hrs/week — Python, LLMs, RAG, MLOps, Deployment</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-type">In Progress</div>
+          <div class="edu-deg">AI/ML Engineering Portfolio</div>
+          <div class="edu-school">3 deployed projects — Streamlit · Gemini API · LangChain</div>
+          <div class="edu-year">Building hands-on, shipping to production</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME -->
+    <div class="panel" id="resume">
+      <div class="panel-title">Work <span>Experience</span></div>
+      <div class="res-list">
+        <div class="res-entry">
+          <div class="res-hdr"><span class="res-title">Data Analyst II</span><span class="res-date">Feb 2021 – Mar 2025</span></div>
+          <div class="res-org">PacificSource Health Plans · Portland, OR</div>
+          <p class="res-desc">Led end-to-end analytics across healthcare marketing and product growth — from funnel analysis and A/B testing to LLM-powered insight tools. Increased conversion by 25%, improved marketing ROI by 35%, and cut analysis time by 70% using GenAI-assisted analytics (Snowflake + OpenAI). Built executive dashboards in Power BI and Looker; reduced reporting turnaround from 5 hours to under 10 minutes. Led Media Mix Modeling across a $3M+ budget, delivering 20% spend efficiency improvement.</p>
+        </div>
+        <div class="res-entry">
+          <div class="res-hdr"><span class="res-title">Product Developer</span><span class="res-date">Nov 2020 – Feb 2021</span></div>
+          <div class="res-org">Sparksoft Corporation · Baltimore, MD</div>
+          <p class="res-desc">Automated ETL pipelines and optimised Snowflake schemas, improving query performance by 30%. Conducted A/B testing to optimise product features, enhancing ROI by 15%.</p>
+        </div>
+        <div class="res-entry">
+          <div class="res-hdr"><span class="res-title">Data Analyst</span><span class="res-date">Feb 2020 – Jul 2020</span></div>
+          <div class="res-org">Index Analytics · Baltimore, MD</div>
+          <p class="res-desc">Built Tableau dashboards for leadership to track operational KPIs. Developed Python data-cleaning pipelines, cutting preprocessing time by 40%.</p>
+        </div>
+      </div>
+      <div class="dl-box">
+        <div>
+          <div class="dl-title">Download Full Resume</div>
+          <div class="dl-sub">PDF · Updated 2025</div>
+        </div>
+        <a href="resume.pdf" class="btn-gold" download>Download PDF</a>
+      </div>
+    </div>
+
+    <!-- HOBBIES -->
+    <div class="panel" id="hobbies">
+      <div class="panel-title">Beyond <span>Work</span></div>
+      <div class="panel-body" style="margin-bottom:32px">
+        <p>What I do when I'm not building things — replace these with your actual hobbies.</p>
+      </div>
+      <div class="hob-grid">
+        <div class="hob"><span class="hob-icon">🏓</span><div class="hob-name">Pickleball</div><div class="hob-desc">Competitive, fast, and addictive — my favourite way to unwind</div></div>
+        <div class="hob"><span class="hob-icon">📚</span><div class="hob-name">Reading</div><div class="hob-desc">Currently reading <em>The Secret of Secrets</em> by Dan Brown</div></div>
+        <div class="hob"><span class="hob-icon">🎨</span><div class="hob-name">Painting</div><div class="hob-desc">A creative outlet that keeps the right brain happy</div></div>
+        <div class="hob"><span class="hob-icon">🪢</span><div class="hob-name">Macramé</div><div class="hob-desc">Knots, textures, and patience — oddly satisfying every time</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const pills = document.querySelectorAll('.nav-pill');
+  const panels = document.querySelectorAll('.panel');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        pills.forEach(p => p.classList.remove('active'));
+        const active = document.querySelector(`.nav-pill[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  panels.forEach(p => observer.observe(p));
+</script>
+
+</body>
+</html>
