@@ -134,7 +134,7 @@
 
   .panel {
     min-height:100vh;
-    padding:80px 72px;
+    padding:80px 10%;
     border-bottom:1px solid var(--border);
     display:flex;
     flex-direction:column;
@@ -146,7 +146,7 @@
 
   .panel-title {
     font-family:'Nunito',sans-serif;
-    font-size:clamp(36px,5vw,56px);
+    font-size:clamp(40px,5.5vw,64px);
     font-weight:400;
     color:var(--navy);
     margin-bottom:28px;
@@ -156,9 +156,9 @@
   .panel-title span { color:var(--gold); font-style:italic; }
 
   .panel-body {
-    font-size:15px; color:var(--muted);
+    font-size:16px; color:var(--muted);
     line-height:1.85; font-weight:300;
-    max-width:580px;
+    max-width:680px;
   }
 
   .panel-body p { margin-bottom:14px; }
@@ -183,7 +183,7 @@
   .pbtn-out:hover { background:var(--navy); color:var(--gold); }
 
   /* PROJECTS */
-  .proj-list { display:flex; flex-direction:column; gap:20px; max-width:620px; }
+  .proj-list { display:flex; flex-direction:column; gap:20px; max-width:780px; }
 
   .proj {
     background:var(--cream);
@@ -241,7 +241,7 @@
   .plink-dim { color:var(--muted); border-color:var(--border); }
 
   /* SKILLS */
-  .skills-cols { display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:580px; }
+  .skills-cols { display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:720px; }
   .skill-group-title {
     font-family:'DM Mono',monospace; font-size:9px;
     letter-spacing:0.18em; text-transform:uppercase;
@@ -256,7 +256,7 @@
   .skill-fill { height:100%; background:var(--gold); }
 
   /* EDUCATION */
-  .edu-list { display:flex; flex-direction:column; gap:20px; max-width:560px; }
+  .edu-list { display:flex; flex-direction:column; gap:20px; max-width:700px; }
   .edu-item {
     padding:20px 24px;
     border-left:3px solid var(--gold);
@@ -275,7 +275,7 @@
   .edu-year { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); }
 
   /* HOBBIES */
-  .hob-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:480px; }
+  .hob-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:600px; }
   .hob {
     background:var(--white); border:1px solid var(--border);
     padding:22px 20px; text-align:center;
@@ -292,7 +292,7 @@
   .dl-box {
     background:#2A1410; padding:28px 32px;
     display:flex; align-items:center; justify-content:space-between;
-    gap:24px; flex-wrap:wrap; max-width:560px; margin-top:32px;
+    gap:24px; flex-wrap:wrap; max-width:700px; margin-top:32px;
   }
   .dl-title { font-family:'Nunito',sans-serif; font-size:18px; font-weight:400; color:var(--white); }
   .dl-sub { font-size:12px; color:rgba(255,255,255,0.35); margin-top:2px; }
@@ -305,7 +305,7 @@
   .btn-gold:hover { background:#e8c97a; }
 
   /* resume entries */
-  .res-list { display:flex; flex-direction:column; gap:20px; max-width:560px; }
+  .res-list { display:flex; flex-direction:column; gap:20px; max-width:700px; }
   .res-entry { padding-bottom:20px; border-bottom:1px solid var(--border); }
   .res-entry:last-child { border-bottom:none; padding-bottom:0; }
   .res-hdr { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:3px; }
@@ -350,22 +350,23 @@
   .hero-contact-btn:hover { background:var(--gold-light); }
   .hero-body {
     flex:1; display:grid; grid-template-columns:1fr 1fr;
-    align-items:center; padding:0 64px; gap:40px;
+    align-items:center; padding:0 80px; gap:60px;
+    max-width:1200px; margin:0 auto; width:100%;
   }
   .hero-hi { font-size:20px; font-weight:400; color:var(--muted); margin-bottom:6px; }
   .hero-name {
-    font-family:'Nunito',sans-serif; font-size:clamp(40px,5.5vw,72px);
+    font-family:'Nunito',sans-serif; font-size:clamp(48px,6vw,84px);
     font-weight:800; color:var(--navy); line-height:1.05;
-    letter-spacing:-0.02em; margin-bottom:10px;
+    letter-spacing:-0.02em; margin-bottom:12px;
   }
   h2.hero-title {
-    font-family:'Nunito',sans-serif; font-size:clamp(20px,3vw,32px);
-    font-weight:700; color:var(--gold); margin-bottom:20px; letter-spacing:-0.01em;
+    font-family:'Nunito',sans-serif; font-size:clamp(22px,3.2vw,36px);
+    font-weight:700; color:var(--gold); margin-bottom:24px; letter-spacing:-0.01em;
   }
   h2.hero-title span { color:var(--navy); }
   .hero-desc {
-    font-size:15px; color:var(--muted); line-height:1.75; font-weight:300;
-    max-width:440px; margin-bottom:36px;
+    font-size:16px; color:var(--muted); line-height:1.8; font-weight:300;
+    max-width:600px; margin-bottom:40px;
   }
   .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
   .hbtn {
@@ -379,9 +380,10 @@
   .hbtn-outline:hover { background:var(--navy); color:#fff; }
   .hero-photo-wrap { display:flex; align-items:center; justify-content:center; }
   .hero-photo-ring {
-    width:320px; height:320px; border-radius:50%;
+    width:380px; height:380px; border-radius:50%;
     background:var(--gold-pale); border:6px solid var(--gold);
     display:flex; align-items:center; justify-content:center; overflow:hidden;
+    box-shadow: 0 0 0 16px rgba(194,107,90,0.1);
   }
   .hero-photo-circle {
     width:100%; height:100%; border-radius:50%; overflow:hidden;
@@ -456,6 +458,7 @@
       <div class="hero-logo">Pranali<span>.</span></div>
       <nav class="hero-nav-links">
         <a href="#about">About</a>
+        <a href="#resume">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
@@ -547,6 +550,36 @@
         <a href="#resume" class="pbtn pbtn-out">Resume</a>
       </div>
     </div>
+
+    <!-- RESUME -->
+    <div class="panel" id="resume">
+      <div class="panel-title">Work <span>Experience</span></div>
+      <div class="res-list">
+        <div class="res-entry">
+          <div class="res-hdr"><span class="res-title">Senior Data Analyst</span><span class="res-date">Feb 2021 – Mar 2025</span></div>
+          <div class="res-org">PacificSource Health Plans · Portland, OR</div>
+          <p class="res-desc">Led end-to-end analytics across healthcare marketing and product growth — from funnel analysis and A/B testing to LLM-powered insight tools. Increased conversion by 25%, improved marketing ROI by 35%, and cut analysis time by 70% using GenAI-assisted analytics (Snowflake + OpenAI). Built executive dashboards in Power BI and Looker; reduced reporting turnaround from 5 hours to under 10 minutes. Led Media Mix Modeling across a $3M+ budget, delivering 20% spend efficiency improvement.</p>
+        </div>
+        <div class="res-entry">
+          <div class="res-hdr"><span class="res-title">Product Developer</span><span class="res-date">Nov 2020 – Feb 2021</span></div>
+          <div class="res-org">Sparksoft Corporation · Baltimore, MD</div>
+          <p class="res-desc">Automated ETL pipelines and optimised Snowflake schemas, improving query performance by 30%. Conducted A/B testing to optimise product features, enhancing ROI by 15%.</p>
+        </div>
+        <div class="res-entry">
+          <div class="res-hdr"><span class="res-title">Data Analyst</span><span class="res-date">Feb 2020 – Jul 2020</span></div>
+          <div class="res-org">Index Analytics · Baltimore, MD</div>
+          <p class="res-desc">Built Tableau dashboards for leadership to track operational KPIs. Developed Python data-cleaning pipelines, cutting preprocessing time by 40%.</p>
+        </div>
+      </div>
+      <div class="dl-box">
+        <div>
+          <div class="dl-title">Download Full Resume</div>
+          <div class="dl-sub">PDF · Updated 2025</div>
+        </div>
+        <a href="resume.pdf" class="btn-gold" target="_blank">View & Download</a>
+      </div>
+    </div>
+
 
     <!-- PROJECTS -->
     <div class="panel" id="projects">
@@ -653,35 +686,6 @@
           <div class="edu-school">3 deployed projects — Streamlit · Gemini API · LangChain</div>
           <div class="edu-year">Building hands-on, shipping to production</div>
         </div>
-      </div>
-    </div>
-
-    <!-- RESUME -->
-    <div class="panel" id="resume">
-      <div class="panel-title">Work <span>Experience</span></div>
-      <div class="res-list">
-        <div class="res-entry">
-          <div class="res-hdr"><span class="res-title">Data Analyst II</span><span class="res-date">Feb 2021 – Mar 2025</span></div>
-          <div class="res-org">PacificSource Health Plans · Portland, OR</div>
-          <p class="res-desc">Led end-to-end analytics across healthcare marketing and product growth — from funnel analysis and A/B testing to LLM-powered insight tools. Increased conversion by 25%, improved marketing ROI by 35%, and cut analysis time by 70% using GenAI-assisted analytics (Snowflake + OpenAI). Built executive dashboards in Power BI and Looker; reduced reporting turnaround from 5 hours to under 10 minutes. Led Media Mix Modeling across a $3M+ budget, delivering 20% spend efficiency improvement.</p>
-        </div>
-        <div class="res-entry">
-          <div class="res-hdr"><span class="res-title">Product Developer</span><span class="res-date">Nov 2020 – Feb 2021</span></div>
-          <div class="res-org">Sparksoft Corporation · Baltimore, MD</div>
-          <p class="res-desc">Automated ETL pipelines and optimised Snowflake schemas, improving query performance by 30%. Conducted A/B testing to optimise product features, enhancing ROI by 15%.</p>
-        </div>
-        <div class="res-entry">
-          <div class="res-hdr"><span class="res-title">Data Analyst</span><span class="res-date">Feb 2020 – Jul 2020</span></div>
-          <div class="res-org">Index Analytics · Baltimore, MD</div>
-          <p class="res-desc">Built Tableau dashboards for leadership to track operational KPIs. Developed Python data-cleaning pipelines, cutting preprocessing time by 40%.</p>
-        </div>
-      </div>
-      <div class="dl-box">
-        <div>
-          <div class="dl-title">Download Full Resume</div>
-          <div class="dl-sub">PDF · Updated 2025</div>
-        </div>
-        <a href="resume.pdf" class="btn-gold" target="_blank">View & Download</a>
       </div>
     </div>
 
